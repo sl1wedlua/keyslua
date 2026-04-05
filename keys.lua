@@ -1,76 +1,20 @@
-local Players = game:GetService("Players")
-local HttpService = game:GetService("HttpService")
-local LocalPlayer = Players.LocalPlayer
-
-local key = getgenv().script_key
-if not key then
-    return warn("No key provided!")
-end
-
-local file = "sl1wed_keys.json"
-local data = {}
-
-if writefile and readfile and isfile then
-    if isfile(file) then
-        local success, result = pcall(function()
-            return HttpService:JSONDecode(readfile(file))
-        end)
-
-        if success and type(result) == "table" then
-            data = result
-        else
-            data = {}
-        end
-    end
-end
-
-local validKeys = {
-["SL1WED-X7A2K9"]=true,["SL1WED-M4Q8Z1"]=true,["SL1WED-P9L3W6"]=true,
-["SL1WED-A2F8J5"]=true,["SL1WED-K6D1R9"]=true,["SL1WED-Z3X7C2"]=true,
-["SL1WED-B8N4M1"]=true,["SL1WED-V5T9Y3"]=true,["SL1WED-Q1W6E8"]=true,
-["SL1WED-H7U2I4"]=true,["SL1WED-J9K3L5"]=true,["SL1WED-S2D8F6"]=true,
-["SL1WED-G4H1J7"]=true,["SL1WED-R6T3Y8"]=true,["SL1WED-U8I2O5"]=true,
-["SL1WED-P1A7S4"]=true,["SL1WED-D3F9G2"]=true,["SL1WED-H5J8K1"]=true,
-["SL1WED-L2Z6X9"]=true,["SL1WED-C4V7B3"]=true,["SL1WED-N8M1Q6"]=true,
-["SL1WED-W3E9R2"]=true,["SL1WED-T5Y7U4"]=true,["SL1WED-I6O1P8"]=true,
-["SL1WED-A9S3D5"]=true,["SL1WED-F2G8H6"]=true,["SL1WED-J4K1L7"]=true,
-["SL1WED-Z6X3C9"]=true,["SL1WED-V8B2N5"]=true,["SL1WED-M1Q7W4"]=true,
-["SL1WED-E3R9T2"]=true,["SL1WED-Y5U8I6"]=true,["SL1WED-O7P2A4"]=true,
-["SL1WED-S9D1F8"]=true,["SL1WED-G6H3J5"]=true,["SL1WED-K2L7Z9"]=true,
-["SL1WED-X4C8V1"]=true,["SL1WED-B3N6M2"]=true,["SL1WED-Q5W9E7"]=true,
-["SL1WED-R1T4Y8"]=true,["SL1WED-U3I6O2"]=true,["SL1WED-P7A9S1"]=true,
-["SL1WED-D2F5G8"]=true,["SL1WED-H9J4K6"]=true,["SL1WED-L1Z3X7"]=true,
-["SL1WED-C8V2B5"]=true,["SL1WED-N6M9Q4"]=true,["SL1WED-W7E1R3"]=true,
-["SL1WED-T2Y5U8"]=true,["SL1WED-I4O9P6"]=true,["SL1WED-A7S2D1"]=true,
-["SL1WED-F9G3H8"]=true,["SL1WED-J6K1L4"]=true,["SL1WED-Z2X5C7"]=true,
-["SL1WED-V1B8N6"]=true,["SL1WED-M3Q9W2"]=true,["SL1WED-E5R7T4"]=true,
-["SL1WED-Y8U1I3"]=true,["SL1WED-O2P6A9"]=true,["SL1WED-S4D7F1"]=true,
-["SL1WED-G8H2J6"]=true,["SL1WED-K5L9Z3"]=true,["SL1WED-X1C4V7"]=true,
-["SL1WED-B6N2M8"]=true,["SL1WED-Q3W7E5"]=true,["SL1WED-R9T1Y6"]=true,
-["SL1WED-U2I8O4"]=true,["SL1WED-P5A3S7"]=true,["SL1WED-D7F1G9"]=true,
-["SL1WED-H3J6K2"]=true,["SL1WED-L8Z4X5"]=true,["SL1WED-C2V9B1"]=true,
-["SL1WED-N5M3Q7"]=true,["SL1WED-W1E6R8"]=true,["SL1WED-T9Y4U2"]=true,
-["SL1WED-I3O7P5"]=true,["SL1WED-A6S8D4"]=true,["SL1WED-F1G2H9"]=true,
-["SL1WED-J8K5L3"]=true,["SL1WED-Z4X1C6"]=true,["SL1WED-V7B9N2"]=true,
-["SL1WED-M2Q4W8"]=true,["SL1WED-E8R3T1"]=true,["SL1WED-Y1U5I7"]=true,
-["SL1WED-O9P4A2"]=true,["SL1WED-S3D6F8"]=true,["SL1WED-G1H9J4"]=true,
-["SL1WED-K7L2Z5"]=true,["SL1WED-X9C6V3"]=true,["SL1WED-B2N8M4"]=true,
-["SL1WED-Q4W1E9"]=true,["SL1WED-R8T6Y2"]=true,["SL1WED-U5I3O7"]=true,
-["SL1WED-P3A1S6"]=true,["SL1WED-D8F4G2"]=true,["SL1WED-H2J7K9"]=true,
-["SL1WED-L6Z1X8"]=true,["SL1WED-C9V5B7"]=true,["SL1WED-N1M8Q3"]=true
+return {
+["K7A2X9P1"]=true,["M4Q8Z1L2"]=true,["P9L3W6D7"]=true,["A2F8J5H9"]=true,["K6D1R9T3"]=true,
+["Z3X7C2V8"]=true,["B8N4M1Q5"]=true,["V5T9Y3U2"]=true,["Q1W6E8R4"]=true,["H7U2I4O9"]=true,
+["J9K3L5Z1"]=true,["S2D8F6G7"]=true,["G4H1J7K3"]=true,["R6T3Y8U2"]=true,["U8I2O5P9"]=true,
+["P1A7S4D6"]=true,["D3F9G2H8"]=true,["H5J8K1L4"]=true,["L2Z6X9C7"]=true,["C4V7B3N1"]=true,
+["N8M1Q6W2"]=true,["W3E9R2T5"]=true,["T5Y7U4I8"]=true,["I6O1P8A3"]=true,["A9S3D5F7"]=true,
+["F2G8H6J1"]=true,["J4K1L7Z3"]=true,["Z6X3C9V2"]=true,["V8B2N5M7"]=true,["M1Q7W4E9"]=true,
+["E3R9T2Y6"]=true,["Y5U8I6O1"]=true,["O7P2A4S9"]=true,["S9D1F8G3"]=true,["G6H3J5K2"]=true,
+["K2L7Z9X4"]=true,["X4C8V1B6"]=true,["B3N6M2Q8"]=true,["Q5W9E7R1"]=true,["R1T4Y8U6"]=true,
+["U3I6O2P7"]=true,["P7A9S1D4"]=true,["D2F5G8H9"]=true,["H9J4K6L3"]=true,["L1Z3X7C8"]=true,
+["C8V2B5N6"]=true,["N6M9Q4W1"]=true,["W7E1R3T8"]=true,["T2Y5U8I4"]=true,["I4O9P6A7"]=true,
+["A7S2D1F9"]=true,["F9G3H8J6"]=true,["J6K1L4Z2"]=true,["Z2X5C7V9"]=true,["V1B8N6M3"]=true,
+["M3Q9W2E5"]=true,["E5R7T4Y8"]=true,["Y8U1I3O6"]=true,["O2P6A9S4"]=true,["S4D7F1G8"]=true,
+["G8H2J6K5"]=true,["K5L9Z3X1"]=true,["X1C4V7B2"]=true,["B6N2M8Q3"]=true,["Q3W7E5R9"]=true,
+["R9T1Y6U4"]=true,["U2I8O4P5"]=true,["P5A3S7D1"]=true,["D7F1G9H6"]=true,["H3J6K2L8"]=true,
+["L8Z4X5C2"]=true,["C2V9B1N7"]=true,["N5M3Q7W1"]=true,["W1E6R8T9"]=true,["T9Y4U2I3"]=true,
+["I3O7P5A6"]=true,["A6S8D4F1"]=true,["F1G2H9J8"]=true,["J8K5L3Z4"]=true,["Z4X1C6V7"]=true,
+["V7B9N2M4"]=true,["M2Q4W8E1"]=true,["E8R3T1Y5"]=true,["Y1U5I7O9"]=true,["O9P4A2S3"]=true,
+["S3D6F8G1"]=true,["G1H9J4K7"]=true,["K7L2Z5X9"]=true,["X9C6V3B2"]=true,["B2N8M4Q1"]=true
 }
-
-if not validKeys[key] then
-    return warn("Invalid key!")
-end
-
-if not data[key] then
-    data[key] = LocalPlayer.UserId
-    if writefile then
-        writefile(file, HttpService:JSONEncode(data))
-    end
-end
-
-if data[key] ~= LocalPlayer.UserId then
-    return warn("Key already used!")
-end
